@@ -49,10 +49,12 @@ import { Progress } from "@/components/ui/progress";
 const getAccessType = (
     isEncrypt: boolean,
     price: number,
+    access_list: string[],
     t: (key: string) => string
 ) => {
     if (!isEncrypt) return t("public");
-    return price > 0 ? t("authorized") : t("private");
+    else if (price > 0 || access_list.length > 0) return t("authorized");
+    else return t("private");
 };
 
 // 地址截断函数
@@ -150,6 +152,7 @@ export default function FilesPage() {
                     accessType: getAccessType(
                         file.is_encrypt,
                         file.price ? Number(file.price) : 0,
+                        file.access_list,
                         t
                     ),
                 };
@@ -460,10 +463,12 @@ export default function FilesPage() {
                                                             <span
                                                                 className={`px-2 py-1 text-xs rounded-full ${
                                                                     file.accessType ===
-                                                                    "私有"
+                                                                    t("private")
                                                                         ? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
                                                                         : file.accessType ===
-                                                                          "授权"
+                                                                          t(
+                                                                              "authorized"
+                                                                          )
                                                                         ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                                                                         : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                                                                 }`}
@@ -749,10 +754,14 @@ export default function FilesPage() {
                                                                 <span
                                                                     className={`px-2 py-1 text-xs rounded-full ${
                                                                         file.accessType ===
-                                                                        "私有"
+                                                                        t(
+                                                                            "private"
+                                                                        )
                                                                             ? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
                                                                             : file.accessType ===
-                                                                              "授权"
+                                                                              t(
+                                                                                  "authorized"
+                                                                              )
                                                                             ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                                                                             : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                                                                     }`}

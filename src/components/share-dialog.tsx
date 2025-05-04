@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { useGrantAccess } from "@/mutations/grant_access";
 import { useQueryClient } from "@tanstack/react-query";
 import { QueryKey } from "@/constants";
+import { useLanguage } from "@/providers/LanguageProvider";
 
 interface ShareDialogProps {
     open: boolean;
@@ -34,6 +35,7 @@ export function ShareDialog({
     const [newRecipient, setNewRecipient] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const queryClient = useQueryClient();
+    const { t } = useLanguage();
 
     const { mutateAsync: grantAccess } = useGrantAccess();
 
@@ -62,7 +64,7 @@ export function ShareDialog({
 
     const handleShare = async () => {
         if (recipients.length === 0) {
-            toast.error("请添加至少一个授权地址");
+            toast.error(t("addAtLeastOneAddress"));
             return;
         }
 
@@ -83,13 +85,13 @@ export function ShareDialog({
                 queryKey: [QueryKey.GetFileQueryKey, fileId],
             });
 
-            toast.success("文件授权成功");
+            toast.success(t("authorizationSuccess"));
             onOpenChange(false);
             setRecipients([]);
             setNewRecipient("");
         } catch (error) {
             console.error("授权失败:", error);
-            toast.error("文件授权失败，请重试");
+            toast.error(t("authorizationFailed"));
         } finally {
             setIsSubmitting(false);
         }
@@ -99,9 +101,9 @@ export function ShareDialog({
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>授权文件</DialogTitle>
+                    <DialogTitle>{t("authorizeFile")}</DialogTitle>
                     <DialogDescription>
-                        输入钱包地址来授权其他用户访问 &ldquo;{fileName}&rdquo;
+                        {t("enterAddressToAuthorize")} &ldquo;{fileName}&rdquo;
                     </DialogDescription>
                 </DialogHeader>
 
@@ -109,7 +111,7 @@ export function ShareDialog({
                     <div className="flex gap-2">
                         <div className="flex-1">
                             <Input
-                                placeholder="输入钱包地址"
+                                placeholder={t("enterWalletAddress")}
                                 value={newRecipient}
                                 onChange={(e) =>
                                     setNewRecipient(e.target.value)
@@ -137,7 +139,7 @@ export function ShareDialog({
                                             navigator.clipboard.writeText(
                                                 recipient
                                             );
-                                            toast.success("地址已复制到剪贴板");
+                                            toast.success(t("addressCopied"));
                                         }}
                                         title={recipient}
                                     >
@@ -166,7 +168,7 @@ export function ShareDialog({
                             onOpenChange(false);
                         }}
                     >
-                        取消
+                        {t("cancel")}
                     </Button>
                     <Button
                         onClick={handleShare}
@@ -176,10 +178,10 @@ export function ShareDialog({
                         {isSubmitting ? (
                             <>
                                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
-                                <span>授权中...</span>
+                                <span>{t("authorizing")}</span>
                             </>
                         ) : (
-                            "确认授权"
+                            t("confirmAuthorization")
                         )}
                     </Button>
                 </DialogFooter>

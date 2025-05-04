@@ -770,7 +770,9 @@ export default function UploadPage() {
                                                             <div className="flex-1">
                                                                 <Input
                                                                     placeholder={t(
-                                                                        "enterWalletAddress"
+                                                                        t(
+                                                                            "enterWalletAddress"
+                                                                        )
                                                                     )}
                                                                     value={
                                                                         newRecipient

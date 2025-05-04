@@ -78,6 +78,16 @@ const translations: Translations = {
         users: "人",
         blobIdCopied: "BlobId已复制到剪贴板",
 
+        // 文件授权对话框
+        authorizeFile: "授权文件",
+        enterAddressToAuthorize: "输入钱包地址来授权其他用户访问",
+        enterWalletAddress: "输入钱包地址",
+        addAtLeastOneAddress: "请添加至少一个授权地址",
+        authorizationSuccess: "文件授权成功",
+        authorizationFailed: "文件授权失败，请重试",
+        authorizing: "授权中...",
+        confirmAuthorization: "确认授权",
+
         // 首页
         secureFileSharing: "安全文件分享",
         decentralizedStorage: "去中心化存储",
@@ -206,7 +216,6 @@ const translations: Translations = {
         sharedDesc: "添加可以访问此文件的用户Sui钱包地址。文件将被加密存储。",
         publicDesc: "任何人都可以访问此文件，无需授权。文件不会加密存储。",
         needSpecifyAddress: "是否需要指定授权地址",
-        enterWalletAddress: "输入钱包地址",
         authorizedUsers: "授权用户",
         allowPurchase: "是否允许购买",
         paymentAmount: "需支付金额",
@@ -267,10 +276,21 @@ const translations: Translations = {
         addressCopied: "Address copied to clipboard",
         owner: "Owner",
         sharedDate: "Shared Date",
-        onlyMe: "Only me can see",
+        onlyMe: "Only visible to me",
         alreadyShared: "Already shared with",
         users: "users",
         blobIdCopied: "BlobId copied to clipboard",
+
+        // File authorization dialog
+        authorizeFile: "Authorize File",
+        enterAddressToAuthorize:
+            "Enter wallet addresses to authorize access to",
+        enterWalletAddress: "Enter wallet address",
+        addAtLeastOneAddress: "Please add at least one authorized address",
+        authorizationSuccess: "File authorization successful",
+        authorizationFailed: "File authorization failed, please try again",
+        authorizing: "Authorizing...",
+        confirmAuthorization: "Confirm Authorization",
 
         // 首页
         secureFileSharing: "Secure File Sharing",
@@ -405,7 +425,6 @@ const translations: Translations = {
         publicDesc:
             "Anyone can access this file without authorization. The file will not be encrypted.",
         needSpecifyAddress: "Do you need to specify authorized addresses",
-        enterWalletAddress: "Enter wallet address",
         authorizedUsers: "Authorized users",
         allowPurchase: "Allow purchase",
         paymentAmount: "Payment amount",
