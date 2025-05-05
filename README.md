@@ -14,3 +14,9 @@ Main features include:
   - `public`: files are not encrypted, directly listed on the file marketplace, all users can freely access their content
 - Users can view files they created, files authorized to them, or files they have purchased
 - Users can access `public` type files through the file marketplace, or purchase `authorized` files that have a price tag
+
+## Demo
+
+- [PPT](./PPT/SecureFileShare-PPT.pdf)
+- testnet：https://securefilesharelab.vercel.app/
+- video：https://www.youtube.com/watch?v=70WoEe64Suo

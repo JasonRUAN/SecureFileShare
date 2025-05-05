@@ -14,3 +14,9 @@
   - `公开`：文件不会被加密，直接上架文件市场，所有用户都可以自由获取其内容
 - 用户可以查看自己创建的文件或授权给我或已经购买的文件
 - 用户可以通过文件市场，获取`公开`类型的文件，或购买有标价的`授权`文件
+
+## 项目演示
+
+- [PPT](./PPT/SecureFileShare-PPT.pdf)
+- testnet：https://securefilesharelab.vercel.app/
+- video：https://www.youtube.com/watch?v=70WoEe64Suo
