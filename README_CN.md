@@ -1,6 +1,6 @@
 # 安全文件分享 (Secure File Share)
 
-一个基于 `Sui` + `Seal` + `Walrus` 构建的安全文件共享平台。
+一个基于 `Sui` + `Seal` + `Walrus` 构建的安全的去中心化的文件存储和共享平台。
 
 ## 项目介绍
 

@@ -1,6 +1,6 @@
 # Secure File Share
 
-A secure file sharing platform base on `Sui` + `Seal` + `Walrus`.
+A secure decentralized file storage & sharing platform base on `Sui` + `Seal` + `Walrus`.
 
 ## Project Introduction
 
